@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "sans-serif";
+}
+header {
+  width: 100%;
+  background-color: #ffbf57;
+  color: white;
+  padding: 16px 0;
+font-family: "Handlee", cursive;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+button {
+  margin: 0;
+  border: 0;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}

@@ -1,0 +1,25 @@
+/* buttons */
+.deleteTaskBtn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 4;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+/* input */
+.newTaskInput {
+  border: 0;
+  border-bottom: 1px solid black;
+  flex: 1;
+  padding: 8px;
+}
+
+/* page style */
+.taskSheet {
+  width: 100%;
+  max-width: 400px;
+  margin: 40px auto;
+  font-family: "sans-serif";
+}
