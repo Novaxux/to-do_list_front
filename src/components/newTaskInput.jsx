@@ -1,6 +1,7 @@
 const newTaskInput = ({ value, onChange }) => {
   return (
-    <input className="newTaskInput"
+    <input
+      className="newTaskInput"
       type="text"
       value={value}
       onChange={onChange}

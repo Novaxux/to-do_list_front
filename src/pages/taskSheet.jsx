@@ -1,6 +1,7 @@
 import { useState } from "react";
-import ButtonDelete from "../components/buttonDelete";
 import NewTaskInput from "../components/newTaskInput";
+import TaskItem from "../components/taskItem";
+import ButtonAdd from "../components/buttonAdd";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -35,31 +36,17 @@ const Home = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <button type="submit" style={{ marginLeft: 8, padding: "8px 16px" }}>
-          Add
-        </button>
+        <ButtonAdd />
       </form>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {tasks.map((task, index) => (
-          <li
+          <TaskItem
             key={index}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              marginBottom: 8,
-              textDecoration: task.completed ? "line-through" : "none",
-              color: task.completed ? "#888" : "#222",
-            }}
-          >
-            <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => handleToggleTask(index)}
-              style={{ marginRight: 8 }}
-            />
-            <span style={{ flex: 1 }}>{task.text}</span>
-            <ButtonDelete onClick={() => handleDeleteTask(index)} />
-          </li>
+            task={task}
+            index={index}
+            handleToggleTask={handleToggleTask}
+            handleDeleteTask={handleDeleteTask}
+          />
         ))}
       </ul>
       {tasks.length === 0 && <p>No tasks yet. Add one above!</p>}

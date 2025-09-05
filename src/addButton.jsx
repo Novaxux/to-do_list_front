@@ -1,7 +1,9 @@
 const addButton = () => {
     return (
-       <button>
+       <button className="addBtn">
         
        </button> 
     )
 }
+
+export default addButton;

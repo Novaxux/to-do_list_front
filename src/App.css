@@ -1,15 +1,33 @@
 /* buttons */
 .deleteTaskBtn {
-  background: #e74c3c;
-  color: #fff;
+  background: none;
+  color: #de0b0b;
+  font-size: x-large;
   border: none;
-  border-radius: 4;
   padding: 4px 8px;
   cursor: pointer;
+}
+.deleteTaskBtn:hover {
+  color: #ff0000;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center ;
+  margin-left: 2px;
+  background: rgb(9, 251, 62);
+  font-size: x-large;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  height: 2rem;
 }
 
 /* input */
 .newTaskInput {
+  margin-bottom: 3rem ;
+  background-color: transparent;
   border: 0;
   border-bottom: 1px solid black;
   flex: 1;
@@ -18,8 +36,22 @@
 
 /* page style */
 .taskSheet {
+  padding: 1rem;
+  margin: auto;
   width: 100%;
   max-width: 400px;
-  margin: 40px auto;
   font-family: "sans-serif";
+}
+
+/* task Item */
+.taskItem {
+  border-bottom: 1px solid rgb(0, 0, 0);
+  display: flex;  
+  align-items: center;
+}
+
+.taskCheckbox {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
 }
