@@ -9,7 +9,6 @@ const newTaskForm = ({ value, onChange, onSubmit }) => {
         onChange={onChange}
         placeholder="Add a new task"
       />
-
       <ButtonAdd />
     </form>
   );
