@@ -12,15 +12,7 @@ const Home = () => {
     setTasks([...tasks, { text: input, completed: false }]);
     setInput("");
   };
-
-  const handleToggleTask = (index) => {
-    setTasks(
-      tasks.map((task, i) =>
-        i === index ? { ...task, completed: !task.completed } : task
-      )
-    );
-  };
-
+  
   const handleDeleteTask = (index) => {
     setTasks(tasks.filter((_, i) => i !== index));
   };
@@ -34,7 +26,6 @@ const Home = () => {
             key={index}
             task={task}
             index={index}
-            handleToggleTask={handleToggleTask}
             handleDeleteTask={handleDeleteTask}
           />
         ))}
