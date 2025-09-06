@@ -4,6 +4,7 @@ const TaskItem = ({ task, index, handleDeleteTask }) => {
     <li className="taskItem" key={index}>
       <span
         style={{
+          flex: 1,
           color: task.completed ? "#888" : "#222",
           whiteSpace: "normal", // permite salto de línea
           wordBreak: "break-word", // corta palabras largas si es necesario
