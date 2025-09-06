@@ -1,11 +1,11 @@
 import "./App.css";
-import Tasksheet from "./pages/taskSheet";
+import Home from "./pages/home";
 import Header from "./components/header";
 function App() {
   return (
     <>
       <Header />
-      <Tasksheet />
+      <Home />
     </>
   );
 }

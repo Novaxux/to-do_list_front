@@ -1,7 +1,6 @@
 import { useState } from "react";
-import NewTaskInput from "../components/newTaskInput";
+import NewTaskForm from "../components/newTaskForm";
 import TaskItem from "../components/taskItem";
-import ButtonAdd from "../components/buttonAdd";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -28,16 +27,7 @@ const Home = () => {
 
   return (
     <div className="taskSheet">
-      <form
-        onSubmit={handleAddTask}
-        style={{ display: "flex", marginBottom: 16 }}
-      >
-        <NewTaskInput
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <ButtonAdd />
-      </form>
+      <NewTaskForm value={input} onChange={(e) => setInput(e.target.value)} onSubmit={handleAddTask} />
       <ul style={{ listStyle: "none", padding: 0 }}>
         {tasks.map((task, index) => (
           <TaskItem
