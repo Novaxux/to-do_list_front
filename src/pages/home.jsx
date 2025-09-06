@@ -9,7 +9,7 @@ const Home = () => {
   const handleAddTask = (e) => {
     e.preventDefault();
     if (input.trim() === "") return;
-    setTasks([...tasks, { text: input, completed: false }]);
+    setTasks([...tasks, { text: input }]);
     setInput("");
   };
   
@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div className="taskSheet">
       <NewTaskForm value={input} onChange={(e) => setInput(e.target.value)} onSubmit={handleAddTask} />
-      <ul style={{ listStyle: "none", padding: 0 }}>
+      <ul className="taskList" style={{ listStyle: "none", padding: 0 }}>
         {tasks.map((task, index) => (
           <TaskItem
             key={index}
@@ -28,9 +28,8 @@ const Home = () => {
             index={index}
             handleDeleteTask={handleDeleteTask}
           />
-        ))}
+        ))} 
       </ul>
-      {tasks.length === 0 && <p>No tasks yet. Add one above!</p>}
     </div>
   );
 };

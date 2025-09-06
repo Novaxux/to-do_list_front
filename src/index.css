@@ -1,22 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 :root{
-  --secondary-color: #fff6e8;
+  --secondary-color: #ffd7d7;
   --sheet-color: #fff8c3;
-  --primary-color: #ffbc5e;
+  --primary-color: #ff5e5eba;
   --main-font-style: 'Handlee', cursive;  
   --main-font-color: #333333;
+  --main-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
 }
 body,
-html, #root {
+html, #root{
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: auto;
+  min-height: 100vh;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: start;
   font-family: var(--main-font-style);
+}
+#root {
   background-color: var(--secondary-color);
 }
 header {  

@@ -1,4 +1,4 @@
-import SubmitIcon from "../assets/submit.svg";
+import SubmitIcon from "../assets/icons/submit.svg";
 const buttonAdd = () => {
   return (
     <button type="submit" className="addBtn">

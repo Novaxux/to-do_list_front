@@ -1,73 +1,99 @@
 /* buttons */
 .deleteTaskBtn {
-  background: none;
-  color: #de0b0b;
-  font-size: x-large;
+  background-color: transparent;
   border: none;
-  padding: 4px 8px;
   cursor: pointer;
 }
-.deleteTaskBtn:hover {
-  color: #ff0000;
+.deleteTaskBtn :hover {
+  transform: scale(1.2);
+}
+
+.addBtn {
+  width: 8%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /* Sheet style */
 .taskSheet {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: center;
   margin-top: 2rem;
-  padding: 1%;
   border-radius: 4px;
-  background-color: var(--sheet-color);
-  width: 500px;
-  max-width: 100%;
-  min-height: 77%;
-  box-shadow: -2px 3px 6px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: -2px 3px 6px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -2px 3px 6px 0px rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
 }
 
 /* task Item */
-.taskItem {
-  width: 99%;
-  border-bottom: 1px solid rgb(0, 0, 0);
+.taskList {
+  margin: auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: start;
+  justify-content: start;
+  height: auto;
+  width: 100%;
+}
+
+.taskItem,
+.newTaskForm {
+  padding: 1%;
+  margin: 1%;
+  margin-bottom: 1rem;
+  background-color: var(--sheet-color);
+  min-height: 3rem;
+  width: 21%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  box-shadow: var(--main-box-shadow);
 }
 
 .taskItem img {
-  height: 2rem;
+  height: 1.4rem;
   cursor: pointer;
-  color: #de0b0b;
+}
+@media (max-width: 450px) {
+  .taskItem,
+  .newTaskForm {
+    width: 90%;
+    min-width: unset;
+    margin: 1%;
+  }
+  .taskList {
+    justify-content: center;
+  }
 }
 
 /* new task form  */
-.newTaskForm {
-  height: 6rem;
-  width: 99%;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
 
-.newTaskForm input[type="text"] {
-  width: 90%;
-  height: 30%;
+.newTaskForm textarea {
+  height: auto;
+  width: 85%;
   border: 0;
-  border-bottom: 1px solid black;
   background-color: transparent;
   outline: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-family: var(--main-font-style);
+  white-space: normal;
+  word-break: break-word;
+  resize: none;
+  overflow: hidden;
 }
 
-.newTaskForm input:focus {
-  border-bottom: 2px ssolid #007bff; /* azul al enfocar */
-}
-.addBtn {
-  width: 9%;
-  height: 1.9rem;
-  border-radius: 70%;
-  background-color: transparent;
-  border: none;
+.newTaskForm button {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgb(11, 229, 11);
   cursor: pointer;
+}
+.newTaskForm button:hover {
+  background-color: rgba(0, 255, 128, 0.301);
+  transform: scale(1.2);
 }
