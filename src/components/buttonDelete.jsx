@@ -1,8 +1,8 @@
-import  EraserIcon  from "../assets/icons/eraser.svg";
-
 const ButtonDelete = ({ onClick }) => {
-  return <button className="deleteTaskBtn" onClick={onClick}>
-    <img src={EraserIcon} alt="eraser" />
-  </button>;
+  return (
+    <button className="deleteTaskBtn" onClick={onClick}>
+      <img src="icons/eraser.svg" alt="eraser" />
+    </button>
+  );
 };
 export default ButtonDelete;

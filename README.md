@@ -1,12 +1,49 @@
-# React + Vite
+# React pwa
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png)
 
-Currently, two official plugins are available:
+## Install pwa
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install vite-plugin-pwa --save-dev
+```
 
-## Expanding the ESLint configuration
+## Create your manifest json
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+my-vite-app/
+ ├─ public/
+ │    └─ manifest.json  
+```
+
+## An example
+
+```json
+{
+  "name": "Mi App de Tareas",
+  "short_name": "TaskApp",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1C274C",
+  "description": "Una aplicación simple para gestionar tareas",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+```
+
+## Link to your html page
+
+```html
+<link rel="manifest" href="/manifest.json" />
+```
