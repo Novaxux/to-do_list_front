@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 :root{
-  --secondary-color: #ffd7d7;
+  --primary-color: #26213fba;
+  --secondary-color: #ffffff;
   --sheet-color: #fff8c3;
-  --primary-color: #ff5e5eba;
   --main-font-style: 'Handlee', cursive;  
   --main-font-color: #333333;
   --main-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
