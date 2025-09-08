@@ -8,13 +8,6 @@
   transform: scale(1.2);
 }
 
-.addBtn {
-  width: 8%;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
 /* Sheet style */
 .taskSheet {
   display: flex;
@@ -82,8 +75,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid #059fff;
-  border-radius: 100%;
+  background-color: #059fff33;
+  box-shadow: var(--main-box-shadow);
   cursor: pointer;
 }
 .newTaskForm button:hover {
