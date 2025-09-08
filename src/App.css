@@ -56,23 +56,15 @@
   height: 1.4rem;
   cursor: pointer;
 }
-@media (max-width: 450px) {
-  .taskItem,
-  .newTaskForm {
-    width: 90%;
-    min-width: unset;
-    margin: 1%;
-  }
-  .taskList {
-    justify-content: center;
-  }
-}
 
 /* new task form  */
+.newTaskForm{
+  width: 50%;
+}
 
-.newTaskForm textarea {
+.newTaskForm input[type="text"] {
   height: auto;
-  width: 85%;
+  width: 80%;
   border: 0;
   background-color: transparent;
   outline: none;
@@ -90,10 +82,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid rgb(11, 229, 11);
+  border: 3px solid #059fff;
+  border-radius: 100%;
   cursor: pointer;
 }
 .newTaskForm button:hover {
-  background-color: rgba(0, 255, 128, 0.301);
-  transform: scale(1.2);
+  background-color: #059fff66;
+  transform: scale(1.1);
+}
+
+/* responsiveness */
+@media (max-width: 450px) {
+  .taskItem,
+  .newTaskForm {
+    width: 80%;
+    min-width: unset;
+    margin: 1%;
+  }
+  .taskList {
+    justify-content: center;
+  }
 }

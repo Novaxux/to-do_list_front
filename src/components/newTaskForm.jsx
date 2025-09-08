@@ -3,7 +3,7 @@ import ButtonAdd from "./buttonAdd";
 const newTaskForm = ({ value, onChange, onSubmit }) => {
   return (
     <form className="newTaskForm" onSubmit={onSubmit}>
-      <textarea
+      < input
         type="text"
         value={value}
         onChange={onChange}
