@@ -1,7 +1,7 @@
 import ButtonDelete from "./buttonDelete";
-const TaskItem = ({ task, index, handleDeleteTask }) => {
+const TaskItem = ({ task, handleDeleteTask }) => {
   return (
-    <li className="taskItem" key={index}>
+    <li className="taskItem" key={task.id}>
       <span
         style={{
           flex: 1,
@@ -9,9 +9,9 @@ const TaskItem = ({ task, index, handleDeleteTask }) => {
           wordBreak: "break-word", // corta palabras largas si es necesario
         }}
       >
-        {task.text}
+        {task.description}
       </span>
-      <ButtonDelete onClick={() => handleDeleteTask(index)} />
+      <ButtonDelete onClick={() => handleDeleteTask(task.id)} />
     </li>
   );
 };
