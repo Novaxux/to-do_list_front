@@ -1,14 +1,14 @@
-import api from "./axios";
+import { apiTodos } from "./axios";
 
 class Api {
-  static  getTasks() {
-    return api.get("/");
+  static getTasks(userId) {
+    return apiTodos.get(`/${userId}`);
   }
   static createTask(data) {
-    return api.post("/", data);
+    return apiTodos.post("/", data);
   }
-  static deleteTask(id) {
-    return api.delete(`/${id}`);
+  static deleteTask(data) {
+    return apiTodos.delete('/', {data});
   }
 }
 
