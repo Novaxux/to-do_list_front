@@ -40,7 +40,7 @@ const Home = () => {
         //   setUser(res.data.user);
         //   localStorage.setItem("user", JSON.stringify(res.data.user));
         // } else {
-        if (res.data?.authenticated) {
+        if (!res.data?.authenticated) {
           const loginUrl = `${import.meta.env.VITE_AUTH}/login.php`;
           window.location.href = loginUrl;
           return;
