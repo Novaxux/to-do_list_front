@@ -7,25 +7,55 @@ import ApiAuth from "../api/auth.js";
 const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [input, setInput] = useState("");
-  const [user, setUser] = useState(null);
-  // cargar tareas
+  // const [user, setUser] = useState(null);
+
+  // 1. Al inicio, leer usuario y tareas guardadas en localStorage
+  useEffect(() => {
+    // const savedUser = localStorage.getItem("user");
+    // if (savedUser) {
+    //   try {
+    //     setUser(JSON.parse(savedUser));
+    //   } catch (err) {
+    //     console.error("Error leyendo usuario local:", err);
+    //   }
+    // }
+
+    const savedTasks = localStorage.getItem("tasks");
+    if (savedTasks) {
+      try {
+        setTasks(JSON.parse(savedTasks));
+      } catch (err) {
+        console.error("Error leyendo tareas local:", err);
+      }
+    }
+  }, []);
+
+  // verificar autenticación al inicio
   useEffect(() => {
     const checkAuth = async () => {
+      if (!navigator.onLine) return;
       try {
         const res = await ApiAuth.verify();
-        if (res.data.authenticated) {
-          console.log("Usuario autenticado:", res.data.user);
-          setUser(res.data.user);
-        } else {
-          console.log(
-            "No estás autenticado, redirigiendo..." + JSON.stringify(res.data)
-          );
-          window.location.href =
-            import.meta.env.VITE_AUTH.toString() + "/login.php";
-          return; // detener aquí
+        // if (res.data.authenticated) {
+        //   setUser(res.data.user);
+        //   localStorage.setItem("user", JSON.stringify(res.data.user));
+        // } else {
+        if (res.data?.authenticated) {
+          const loginUrl = `${import.meta.env.VITE_AUTH}/login.php`;
+          window.location.href = loginUrl;
+          return;
         }
       } catch (err) {
         console.error("Error al verificar autenticación:", err);
+        // 👇 intentar restaurar user si existe en localStorage
+        // const savedUser = localStorage.getItem("user");
+        // if (savedUser) {
+        //   try {
+        //     setUser(JSON.parse(savedUser));
+        //   } catch (e) {
+        //     console.error("Error leyendo usuario de localStorage:", e);
+        //   }
+        // }
       }
     };
     checkAuth();
@@ -33,13 +63,15 @@ const Home = () => {
 
   // esperar a que cargue el user
   useEffect(() => {
-    if (!user?.id) return; // espera hasta que user tenga id
+    // if (!user?.id) return; // espera hasta que user tenga id
     if (!navigator.onLine) return; // opcional: solo si hay conexión
 
-    Api.getTasks(user.id)
+    // Api.getTasks(user.id)
+    Api.getTasks()
       .then((res) => setTasks(res.data))
       .catch((err) => console.error(err));
-  }, [user]);
+  // }, [user]);
+  }, []);
 
   // persistir en localStorage
   useEffect(() => {
@@ -48,14 +80,14 @@ const Home = () => {
 
   // sincronizar pendientes al volver la conexión
   useEffect(() => {
-    if (!user?.id) return;
+    // if (!user?.id) return;
     const sync = async () => {
       const pendingTasks = tasks.filter((t) => t.pending);
       for (const t of pendingTasks) {
         try {
           const res = await Api.createTask({
             description: t.description,
-            userId: user.id,
+            // userId: t.userId,
           });
           setTasks((prev) =>
             prev.map((task) => (task.id == t.id ? res.data : task))
@@ -68,7 +100,8 @@ const Home = () => {
 
     window.addEventListener("online", sync);
     return () => window.removeEventListener("online", sync);
-  }, [tasks, user]);
+  // }, [tasks, user]);
+  }, [tasks]);
 
   const handleAddTask = (e) => {
     e.preventDefault();
@@ -79,13 +112,15 @@ const Home = () => {
         id: Date.now(),
         description: input,
         pending: true,
+        // userId: user.id, // usuario al que pertenece la tarea
       };
       setTasks((prev) => [...prev, newTask]);
       setInput("");
       return;
     }
 
-    Api.createTask({ description: input, userId: user.id })
+    // Api.createTask({ description: input, userId: user.id })
+    Api.createTask({ description: input})
       .then((res) => {
         setTasks([...tasks, res.data]);
         setInput("");
@@ -102,7 +137,8 @@ const Home = () => {
       return;
     }
 
-    Api.deleteTask({ id: itemToDelete.id, userId: user.id })
+    // Api.deleteTask({ id: itemToDelete.id, userId: user.id })
+    Api.deleteTask(itemToDelete.id)
       .then(() => {
         setTasks(tasks.filter((t) => t.id !== id));
       })
